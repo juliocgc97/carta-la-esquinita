@@ -29,7 +29,11 @@
   /* Navegación */
   nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:4px;overflow-x:auto;padding:8px 12px;z-index:5;scrollbar-width:none}
   nav a{white-space:nowrap;text-decoration:none;padding:6px 12px;border-radius:16px;font-size:.9rem}
-  nav a:hover{background:var(--crema)}
+  nav a{border-bottom:2px solid transparent;border-radius:0;transition:color .2s,border-color .2s}
+  nav a:hover{color:var(--acento)}
+  nav a.activo{color:var(--acento);border-bottom-color:var(--acento)}
+  .btn{transition:transform .15s,filter .15s}
+  .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
 
   main{max-width:720px;margin:0 auto;padding:0 16px}
   section{padding:36px 0 8px;scroll-margin-top:50px}
@@ -57,9 +61,7 @@
   .nota{color:var(--acento);font-weight:700;font-size:.95rem}
   .solete{display:inline-block;background:var(--crema);color:var(--acento);border-radius:10px;padding:1px 8px;font-size:.78rem;font-weight:700;margin-left:4px}
 
-  /* Reservas e info */
-  .reservas{background:var(--crema);border-radius:16px;padding:24px;text-align:center}
-  .reservas .tel{font-family:'Playfair Display',serif;font-size:2rem;color:var(--acento);text-decoration:none;display:block;margin:6px 0 14px}
+  /* Info */
   .info p{margin:8px 0}
   .al{font-size:.85rem;color:var(--muted)}
   .reservar{position:fixed;left:12px;right:12px;bottom:12px;max-width:696px;margin:0 auto;text-align:center;padding:14px;box-shadow:0 6px 18px #0005;z-index:10}
@@ -100,7 +102,7 @@
     <h1>La Esquinita</h1>
     <p>Cocina casera alcarreña en el corazón de Cifuentes</p>
     <div class="acciones">
-      <a class="btn sec" href="#carta">Ver la carta</a>
+      <a class="btn" href="#carta">Ver la carta</a>
     </div>
   </div>
 </header>
@@ -110,7 +112,6 @@
   <a href="#menu">Menú del día</a>
   <a href="#carta">Carta</a>
   <a href="#postres">Postres</a>
-  <a href="#reservas">Reservas</a>
   <a href="#info">Cómo llegar</a>
 </nav>
 
@@ -198,19 +199,11 @@
     <p class="al" style="margin-top:14px">Si tienes alguna alergia o intolerancia, consulta a nuestro personal.</p>
   </section>
 
-  <section id="reservas" data-foto="salon-vigas">
-    <div class="reservas">
-      <h2>Reservas</h2>
-      <p>Llámanos y te guardamos mesa</p>
-      <a class="tel" href="tel:+34949811364">949 81 13 64</a>
-    </div>
-  </section>
-
   <section id="info" data-foto="salon" class="info">
     <h2>Cómo llegar</h2>
     <p>📍 C. Puerta Salinera, 1 · 19420 Cifuentes (Guadalajara)</p>
     <p>🕒 Horario: <em>(pendiente de confirmar)</em></p>
-    <p><a class="btn" href="https://maps.google.com/?q=Calle+Puerta+Salinera+1,+19420+Cifuentes,+Guadalajara" target="_blank" rel="noopener">📍 Abrir en Google Maps</a></p>
+    <p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Restaurante+La+Esquinita+Cifuentes" target="_blank" rel="noopener">📍 Abrir en Google Maps</a></p>
   </section>
 </main>
 
@@ -225,6 +218,16 @@
     if(e.isIntersecting) fotos.forEach(f=>f.classList.toggle('on',f.dataset.n===e.target.dataset.foto));
   }),{rootMargin:'-45% 0px -45% 0px'});
   document.querySelectorAll('[data-foto]').forEach(el=>obs.observe(el));
+
+  // Menú: marca en dorado la sección que estás viendo
+  const enlaces=[...document.querySelectorAll('nav a')];
+  const secciones=enlaces.map(a=>document.querySelector(a.getAttribute('href')));
+  function marcar(){
+    let i=-1;
+    secciones.forEach((s,n)=>{ if(s && s.getBoundingClientRect().top < innerHeight*0.4) i=n; });
+    enlaces.forEach((a,n)=>a.classList.toggle('activo',n===i));
+  }
+  addEventListener('scroll',marcar,{passive:true}); marcar();
 </script>
 </body>
 </html>

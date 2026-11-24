@@ -70,9 +70,9 @@
   .mosaico img:first-child{grid-column:span 2;grid-row:span 2}
 
 
-  /* Cabeceras de la carta con foto */
-  .cat h3{height:150px;display:flex;align-items:flex-end;padding:12px 14px;border:0;border-radius:12px;color:#fff;font-size:1.5rem;
-    background:linear-gradient(180deg,transparent 30%,rgba(20,12,6,.9)),var(--foto) var(--pos,center)/cover;margin-bottom:6px}
+  /* Cabeceras de la carta */
+  .cat h3{color:var(--acento);font-size:1.45rem;border:0;padding-bottom:6px;margin-bottom:6px;
+    background:linear-gradient(90deg,var(--acento),transparent) bottom left/100% 1px no-repeat}
 
   /* Escritorio: foto fija al lado que cambia con cada sección */
   .lado{display:none}
@@ -149,7 +149,7 @@
     <h2>La carta</h2>
     <p class="sub">Precios en actualización. Consulta al personal.</p>
 
-    <div class="cat" id="raciones" data-foto="mesa-larga"><h3 style="--foto:url(img/mesa-larga.jpg);--pos:center 40%">Raciones</h3>
+    <div class="cat" id="raciones" data-foto="mesa-larga"><h3>Raciones</h3>
       <div class="plato"><div><b>Migas</b></div></div>
       <div class="plato"><div><b>Croquetas caseras</b><p>9 unidades · rabo de toro, jamón o cochinillo con manzana</p></div></div>
       <div class="plato"><div><b>Nido de morcilla</b><span class="solete">☀ Solete Repsol</span></div></div>
@@ -161,14 +161,14 @@
       <div class="plato"><div><b>Cazón</b></div></div>
     </div>
 
-    <div class="cat" id="ensaladas" data-foto="salon"><h3 style="--foto:url(img/salon.jpg);--pos:center 60%">Ensaladas</h3>
+    <div class="cat" id="ensaladas" data-foto="salon"><h3>Ensaladas</h3>
       <div class="plato"><div><b>Ensalada de trufa</b></div></div>
       <div class="plato"><div><b>Ensalada de asadillo</b></div></div>
       <div class="plato"><div><b>Ensalada mixta</b></div></div>
       <div class="plato"><div><b>Ensalada arcoíris</b></div></div>
     </div>
 
-    <div class="cat" id="carnes" data-foto="chimenea"><h3 style="--foto:url(img/chimenea.jpg)">Carnes</h3>
+    <div class="cat" id="carnes" data-foto="chimenea"><h3>Carnes</h3>
       <div class="plato"><div><b>Chuletitas de lechal</b></div></div>
       <div class="plato"><div><b>Entrecot de ternera</b></div></div>
       <div class="plato"><div><b>Hamburguesa de novillo</b></div></div>
@@ -176,7 +176,7 @@
       <div class="plato"><div><b>Cachopo</b><p>Con queso Cabrales</p></div></div>
     </div>
 
-    <div class="cat" id="pescados" data-foto="ciervos"><h3 style="--foto:url(img/ciervos.jpg);--pos:right 45%">Pescados</h3>
+    <div class="cat" id="pescados" data-foto="ciervos"><h3>Pescados</h3>
       <div class="plato"><div><b>Bacalao a la riojana</b></div></div>
       <div class="plato"><div><b>Sepia a la plancha</b></div></div>
       <div class="plato"><div><b>Pata de pulpo a la gallega</b></div></div>
@@ -185,7 +185,7 @@
       <div class="plato"><div><b>Fritura de pescado</b></div></div>
     </div>
 
-    <div class="cat" id="postres" data-foto="lampara"><h3 style="--foto:url(img/lampara.jpg);--pos:center 30%">Postres caseros</h3>
+    <div class="cat" id="postres" data-foto="lampara"><h3>Postres caseros</h3>
       <p class="nota">Todos nuestros postres a 6 €</p>
       <div class="plato"><div><b>Tarta de queso</b></div><span class="precio-p">6 €</span></div>
       <div class="plato"><div><b>Tarta de manzana con dátiles</b></div><span class="precio-p">6 €</span></div>
